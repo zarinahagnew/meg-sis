@@ -1,0 +1,32 @@
+
+clear all
+close all
+cd /Users/zagnew/emovox_sis
+set_params_sis;
+load meg
+
+%% write average data into one matrix
+for isubj=1:nsubs
+sis.disgust(isubj,:)=meg{isubj}.disgust_denoised_normed.MLT.difference;
+sis.laugh(isubj,:)=meg{isubj}.laugh_denoised_normed.MLT.difference;
+sis.speech(isubj,:)=meg{isubj}.speech_denoised_normed.MLT.difference;
+end
+
+%% mean across the group
+sis.groupmean.disgust=mean(sis.disgust);
+sis.groupmean.speech=mean(sis.speech);
+sis.groupmean.laugh=mean(sis.laugh);
+
+
+%% plot these
+figure
+%subplot(311)
+plot(meg{1}.speech_denoised.MLT.speak.taxis.ms(1:1000),sis.groupmean.speech(1:1000), 'k')
+hold on
+plot(meg{1}.speech_denoised.MLT.speak.taxis.ms(1:1000),sis.groupmean.disgust(1:1000), 'm')
+plot(meg{1}.speech_denoised.MLT.speak.taxis.ms(1:1000),sis.groupmean.laugh(1:1000), 'c')
+goodplot
+axis([-300 600 -3 2])
+
+(1:1000)
+
