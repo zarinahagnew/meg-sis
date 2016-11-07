@@ -19,6 +19,7 @@ sis.groupmean.speech=mean(sis.speech);
 sis.groupmean.laugh=mean(sis.laugh);
 
 save sis sis
+
 %% plot these
 figure
 plot(meg{1}.speech_denoised.MLT.speak.taxis.ms(1:1000),sis.groupmean.speech(1:1000),'LineWidth', 1.3, 'Color',bigup_gs);
@@ -27,6 +28,6 @@ plot(meg{1}.speech_denoised.MLT.speak.taxis.ms(1:1000),sis.groupmean.disgust(1:1
 plot(meg{1}.speech_denoised.MLT.speak.taxis.ms(1:1000),sis.groupmean.laugh(1:1000), 'LineWidth', 1.3, 'Color',clear_colour);
 legend('speech', 'laugh', 'digust')
 goodplot
-axis([-300 600 -3 2])
+axis([-300 600 -6 6])
 
 
