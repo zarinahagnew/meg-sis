@@ -1,7 +1,6 @@
 %% for analysis of SIS data in sensory space. 
 % uses get_meg_and_rms
 
-
 clear all
 close all
 % set_params_sis
